@@ -81,10 +81,10 @@
 
 <section class="stats">
   <div class="wrap stats__in">
-    <div><b>89 регионов</b><span>сайт доступен по всей стране</span></div>
-    <div><b>5–10 минут</b><span>на подключение одного сайта</span></div>
-    <div><b>3 дня</b><span>бесплатного теста без оплаты</span></div>
-    <div><b>100%</b><span>возврат, если результата нет</span></div>
+    <div><b>89 регионов</b><span>по всей стране</span></div>
+    <div><b>5–10 минут</b><span>на подключение</span></div>
+    <div><b>3 дня</b><span>бесплатного теста</span></div>
+    <div><b>100%</b><span>возврат, если не сработает</span></div>
   </div>
 </section>
 
@@ -92,7 +92,7 @@
 <section class="sec" id="how-to">
   <div class="wrap">
     <p class="eyebrow">Коротко о главном</p>
-    <h2>Как добавить сайт в белый список</h2>
+    <h2>Как добавить сайт в белый список?</h2>
     <p class="answer"><b>Ответ:</b> напрямую в список сайт не вносят. Белый список состоит из IP-адресов, поэтому нужно, чтобы сайт работал на IP, который операторы уже пропускают при ограничениях. Наш сервис даёт такой адрес, а от вас требуется одна правка DNS.</p>
     <ol class="steps steps--how">
       <li><i>1</i><h3>Проверьте текущий статус</h3><p>Введите домен в чекер выше: увидите, в списке ли он у МТС, Билайн, МегаФон и Tele2.</p></li>
@@ -107,7 +107,7 @@
 <!-- PROBLEM -->
 <section class="sec" id="problem">
   <div class="wrap">
-    <p class="eyebrow">В чём проблема</p>
+    <p class="eyebrow">В чём проблема?</p>
     <h2>Во время ограничений недоступный сайт теряет и трафик, и рекламный бюджет</h2>
     <div class="cards cards--2">
       <article class="card">
@@ -120,6 +120,34 @@
       </article>
     </div>
     <p class="note">Хуже всего, что это незаметно: в аналитике просто провал по трафику, и причина не очевидна.</p>
+
+    <div class="loss">
+      <form class="card calc" id="calc" onsubmit="return false">
+        <h3>Сколько уходит впустую</h3>
+        <p class="calc__lead">Реклама продолжает крутиться, клики оплачиваются, а страница не открывается. Прикиньте на своих цифрах.</p>
+        <label>Рекламный бюджет в день <output id="o-budget">30 000 ₽</output>
+          <input type="range" id="i-budget" min="5000" max="200000" step="5000" value="30000"></label>
+        <label>Доля трафика с мобильных <output id="o-share">60%</output>
+          <input type="range" id="i-share" min="10" max="95" step="5" value="60"></label>
+        <label>Дней с ограничениями в месяц <output id="o-days">5</output>
+          <input type="range" id="i-days" min="1" max="30" step="1" value="5"></label>
+        <div class="calc__res">
+          <span>Бюджет, потраченный на клики, которые не откроются</span>
+          <b id="o-loss">90 000 ₽</b>
+          <small id="o-vs"></small>
+        </div>
+        <p class="fine">Оценка по формуле «бюджет × доля мобильных × дни». Это не прогноз, а порядок цифр.</p>
+      </form>
+
+      <div class="vs">
+        <h3>Что видит клиент в регионах во время ограничений</h3>
+        <div class="vs__row">
+          <figure><div data-rumap="none" class="vs__map"></div><figcaption class="vs__bad"><b>Ваш сайт без белого IP</b>не открывается, реклама продолжает списывать деньги</figcaption></figure>
+          <figure><div data-rumap="all" class="vs__map"></div><figcaption class="vs__ok"><b>Конкурент на белом IP</b>открывается, и заявки идут к нему</figcaption></figure>
+        </div>
+        <p class="fine">Иллюстрация: так выглядит ситуация, когда ограничения включены везде. Статус вашего сайта по регионам покажет проверка выше.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -142,7 +170,7 @@
       <article class="card"><h3>Прозрачный статус</h3><p>Проверяйте результат сами в нашем чекере — в любой момент.</p></article>
     </div>
     <div class="how">
-      <h3>Почему нельзя просто взять белый IP самому</h3>
+      <h3>Почему нельзя просто взять белый IP самому?</h3>
       <ul class="list">
         <li>У облачных провайдеров свободные белые адреса почти закончились, а очередь занимает месяцы.</li>
         <li>Регистрация напрямую через оператора требует собственной инфраструктуры и соответствия его требованиям — для малого бизнеса это малодостижимо.</li>
@@ -155,7 +183,7 @@
 <section class="sec sec--tint" id="trust">
   <div class="wrap">
     <p class="eyebrow">Прозрачность</p>
-    <h2>Как отличить настоящее подключение от обещаний</h2>
+    <h2>Как отличить настоящее подключение от обещаний?</h2>
     <p class="sub">Результат не нужно принимать на веру. Его можно проверить самому в любой момент.</p>
     <div class="cards cards--2">
       <div class="card cmp cmp--bad">
@@ -204,6 +232,13 @@
   <div class="wrap">
     <p class="eyebrow">Процесс</p>
     <h2>Как мы подключаем сайт</h2>
+    <div class="person">
+      <img src="/assets/aleksandr.jpg" width="120" height="120" alt="Александр Миленькин" loading="lazy">
+      <div>
+        <b>Александр Миленькин</b>
+        <p>Привет, я Александр. Помогу быстро настроить сервис и отвечу на все ваши вопросы. Я живой человек, не бот: пишите, как вам удобно.</p>
+      </div>
+    </div>
     <ol class="steps">
       <li><i>1</i><h3>Заявка</h3><p>Оставляете домен и контакт. Отвечаем в течение часа в рабочее время.</p></li>
       <li><i>2</i><h3>Анализ</h3><p>Смотрим текущий статус, собираем поддомены и IP проекта.</p></li>
@@ -218,7 +253,7 @@
 <section class="sec sec--tint" id="fit">
   <div class="wrap">
     <p class="eyebrow">Для кого</p>
-    <h2>Подходит ли ваш сайт</h2>
+    <h2>Подходит ли ваш сайт?</h2>
     <p class="sub">Ориентиры по типу проекта и суточной посещаемости.</p>
     <div class="cards cards--2">
       <div class="card">
@@ -327,6 +362,7 @@
   <div class="wrap foot__c">© 2026 v-belye-spiski.ru</div>
 </footer>
 
+<script src="/assets/ru-map.js"></script>
 <script src="/assets/app.js"></script>
 </body>
 </html>
