@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<defs><path id="c" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/><style>text{font-family:"PT Serif",Georgia,"Times New Roman",serif}</style></defs>
+<circle cx="100" cy="100" r="94" fill="none" stroke="#b08a3e" stroke-width="3"/>
+<circle cx="100" cy="100" r="88" fill="none" stroke="#b08a3e" stroke-width="1" stroke-dasharray="2 4"/>
+<circle cx="100" cy="100" r="52" fill="#fff" stroke="#7b1e2f" stroke-width="3"/>
+<path d="M76 102 L94 120 L126 80" fill="none" stroke="#1f4aa0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<text font-size="12.5" font-weight="700" fill="#7b1e2f" letter-spacing="1.2"><textPath href="#c" startOffset="0" textLength="440" lengthAdjust="spacing">РЕЗУЛЬТАТ ПОДТВЕРЖДАЕТСЯ ПРОВЕРКОЙ · ✦</textPath></text>
+</svg>
