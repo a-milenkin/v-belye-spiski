@@ -194,7 +194,6 @@ h1,h2{font-weight:700;letter-spacing:-.005em}
 .eyebrow::before{content:"";display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);margin-right:10px;vertical-align:1px}
 body{background:var(--bg)}
 .top{background:rgba(255,255,255,.95)}
-.top::after{content:"";display:block;height:10px;background:url(/assets/ornament.svg?v=d80e76d5) repeat-x center/40px 10px;opacity:.6}
 .top{border-bottom:1px solid var(--line)}
 .logo__mark{background:var(--accent);box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--gold)}
 .hero{background:linear-gradient(#fff,#f6f9ff)}
