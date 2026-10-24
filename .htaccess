@@ -1,0 +1,20 @@
+DirectoryIndex index.html
+Options -Indexes
+RewriteEngine On
+# HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# без .html в адресах юр. страниц
+RewriteRule ^politika-konfidencialnosti/?$ politika-konfidencialnosti.html [L]
+RewriteRule ^publichnaya-oferta/?$ publichnaya-oferta.html [L]
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options nosniff
+  Header always set Referrer-Policy strict-origin-when-cross-origin
+  <FilesMatch "\.(css|js|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
+<FilesMatch "^(README\.md|\.gitignore)$">
+  Require all denied
+</FilesMatch>

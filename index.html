@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как добавить сайт в белый список операторов — проверка и подключение | В белые списки</title>
+<meta name="description" content="Как добавить сайт в белый список: проверьте домен у МТС, Билайн, МегаФон и Tele2, получите белый IP и поменяйте DNS — сайт будет открываться при ограничениях мобильного интернета.">
+<link rel="canonical" href="https://v-belye-spiski.ru/">
+<meta property="og:title" content="Как добавить сайт в белый список операторов">
+<meta property="og:description" content="Статус домена у каждого оператора и подключение к белому IP.">
+<meta property="og:url" content="https://v-belye-spiski.ru/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"HowTo","name":"Как добавить сайт в белый список операторов","step":[
+{"@type":"HowToStep","name":"Проверьте текущий статус","text":"Введите домен в чекер и посмотрите статус у каждого оператора."},
+{"@type":"HowToStep","name":"Оставьте заявку","text":"Укажите домен и контакт, мы соберём поддомены и подберём тариф."},
+{"@type":"HowToStep","name":"Смените DNS","text":"Направьте домен на выданный белый IP-адрес."},
+{"@type":"HowToStep","name":"Убедитесь по чекеру","text":"Повторите проверку: статус по операторам должен измениться."}]},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как добавить сайт в белый список?","acceptedAnswer":{"@type":"Answer","text":"Сайт должен работать на белом IP-адресе, который операторы пропускают при ограничениях. Сервис подключает домен к такой инфраструктуре, владелец меняет DNS, результат проверяется в чекере."}}]}
+]}
+</script>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="/"><span class="logo__mark">✓</span>В белые списки</a>
+    <nav class="nav" id="nav">
+      <a href="#checker">Проверка</a>
+      <a href="#how-to">Как добавить</a>
+      <a href="#process">Как подключаем</a>
+      <a href="#fit">Кому подходит</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--sm" href="#lead">Подключить сайт</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO + CHECKER -->
+<section class="hero" id="checker">
+  <div class="wrap">
+    <p class="chip">Данные операторов обновляются ежедневно</p>
+    <h1>Как добавить сайт в белый список и проверить, что он открывается при ограничениях мобильного интернета</h1>
+    <p class="lead">Введите домен или IP — покажем статус у каждого оператора. Если сайта в списке нет, <a href="#how-to">расскажем, как его добавить</a>, и подключим сами.</p>
+
+    <form class="checker" id="checkForm" novalidate>
+      <label class="checker__field">
+        <span class="checker__pre">https://</span>
+        <input id="checkInput" name="q" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="example.ru" aria-label="Адрес сайта">
+      </label>
+      <button class="btn btn--lg" type="submit" id="checkBtn">Проверить</button>
+    </form>
+    <p class="examples">Примеры: <button type="button" data-ex="gosuslugi.ru">gosuslugi.ru</button> <button type="button" data-ex="vk.com">vk.com</button> <button type="button" data-ex="mysite.ru">mysite.ru</button></p>
+
+    <div class="result" id="result" aria-live="polite">
+      <p class="result__hint">Введите адрес и нажмите «Проверить» — вы увидите статус по каждому оператору.</p>
+    </div>
+
+    <ul class="trio">
+      <li><b>Реальная проверка</b>Сверяем IP со списками операторов, а не угадываем статус по косвенным признакам.</li>
+      <li><b>Каждый оператор отдельно</b>МТС, Билайн, МегаФон, Tele2 — у каждого свой результат, а не общее «да/нет».</li>
+      <li><b>Честный ответ</b>Если сайта в списке нет — так и напишем, без успокаивающих формулировок.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats__in">
+    <div><b>4</b><span>оператора в проверке</span></div>
+    <div><b>1 день</b><span>минимальный срок подключения</span></div>
+    <div><b>1 IP = 1 клиент</b><span>адреса не делятся между сайтами</span></div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="sec" id="how-to">
+  <div class="wrap">
+    <p class="eyebrow">Коротко о главном</p>
+    <h2>Как добавить сайт в белый список</h2>
+    <p class="answer"><b>Ответ:</b> напрямую в список сайт не вносят. Белый список состоит из IP-адресов, поэтому нужно, чтобы сайт работал на IP, который операторы уже пропускают при ограничениях. Наш сервис даёт такой адрес, а от вас требуется одна правка DNS.</p>
+    <ol class="steps steps--how">
+      <li><i>1</i><h3>Проверьте текущий статус</h3><p>Введите домен в чекер выше: увидите, в списке ли он у МТС, Билайн, МегаФон и Tele2.</p></li>
+      <li><i>2</i><h3>Оставьте заявку</h3><p>Укажите домен и контакт. Мы соберём поддомены и подберём тариф.</p></li>
+      <li><i>3</i><h3>Смените DNS</h3><p>Направьте домен на выданный «белый» IP — это единственное, что нужно сделать на вашей стороне.</p></li>
+      <li><i>4</i><h3>Убедитесь по чекеру</h3><p>Повторите проверку: статус по каждому оператору должен измениться. Дальше следим за доступностью мы.</p></li>
+    </ol>
+    <p class="note">Почему нельзя сделать это самому: у облачных провайдеров свободных белых адресов почти нет, а напрямую через оператора нужна своя инфраструктура. <a href="#lead">Подключить сайт</a> или <a href="#checker">сначала проверить</a>.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec" id="problem">
+  <div class="wrap">
+    <p class="eyebrow">В чём проблема</p>
+    <h2>Во время ограничений недоступный сайт теряет и трафик, и рекламный бюджет</h2>
+    <div class="cards cards--2">
+      <article class="card">
+        <h3>Уходит органика</h3>
+        <p>Человек ищет вашу услугу, но из выдачи открываются только ресурсы из белого списка. Заявки достаются тем, кто в нём есть.</p>
+      </article>
+      <article class="card">
+        <h3>Сгорает реклама</h3>
+        <p>Клики оплачены, а страница не грузится. Конверсий нет, бюджет потрачен впустую.</p>
+      </article>
+    </div>
+    <p class="note">Хуже всего, что это незаметно: в аналитике просто провал по трафику, и причина не очевидна.</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="sec sec--tint" id="solution">
+  <div class="wrap">
+    <p class="eyebrow">Решение</p>
+    <h2>Подключаем сайт к инфраструктуре с белыми IP</h2>
+    <p class="sub">Сайт получает адрес, который операторы пропускают при ограничениях. С вашей стороны — одна правка DNS.</p>
+    <div class="cards cards--3">
+      <article class="card"><h3>Доступен при отключениях</h3><p>Клиент открывает ваш ресурс, пока другие недоступны.</p></article>
+      <article class="card"><h3>Защита от DDoS</h3><p>Фильтрация нагрузки входит в старший тариф.</p></article>
+      <article class="card"><h3>Прозрачный статус</h3><p>Проверяйте результат сами в нашем чекере — в любой момент.</p></article>
+    </div>
+    <div class="how">
+      <h3>Почему нельзя просто взять белый IP самому</h3>
+      <ul class="list">
+        <li>У облачных провайдеров свободные белые адреса почти закончились, а очередь занимает месяцы.</li>
+        <li>Регистрация напрямую через оператора требует собственной инфраструктуры и соответствия его требованиям — для малого бизнеса это малодостижимо.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <p class="eyebrow">Процесс</p>
+    <h2>Как мы подключаем сайт</h2>
+    <ol class="steps">
+      <li><i>1</i><h3>Заявка</h3><p>Оставляете домен и контакт. Отвечаем в течение часа в рабочее время.</p></li>
+      <li><i>2</i><h3>Анализ</h3><p>Смотрим текущий статус, собираем поддомены и IP проекта.</p></li>
+      <li><i>3</i><h3>Подключение</h3><p>Вы меняете записи DNS, остальное делаем мы.</p></li>
+      <li><i>4</i><h3>Отчёт</h3><p>Присылаем подтверждение доступности и держим сайт на мониторинге.</p></li>
+    </ol>
+    <a class="btn" href="#lead">Оставить заявку</a>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="sec sec--tint" id="fit">
+  <div class="wrap">
+    <p class="eyebrow">Для кого</p>
+    <h2>Подходит ли ваш сайт</h2>
+    <p class="sub">Ориентиры по типу проекта и суточной посещаемости.</p>
+    <div class="cards cards--2">
+      <div class="card">
+        <h3 class="ok">Подходит</h3>
+        <table class="tbl">
+          <tr><td>Лендинг, сайт-визитка</td><td>до 50 000</td></tr>
+          <tr><td>Интернет-магазин</td><td>до 15 000</td></tr>
+          <tr><td>Корпоративный сайт</td><td>до 20 000</td></tr>
+          <tr><td>Блог, новости</td><td>до 10 000</td></tr>
+          <tr><td>B2B-сервис, личный кабинет</td><td>до 15 000</td></tr>
+          <tr><td>Небольшой SaaS</td><td>до 10 000</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 class="no">Не подходит</h3>
+        <table class="tbl">
+          <tr><td>Видеохостинг, стриминг</td><td>тяжёлый трафик</td></tr>
+          <tr><td>Маркетплейс от 10 000 товаров</td><td>нагрузка на канал</td></tr>
+          <tr><td>Онлайн-игры</td><td>постоянные соединения</td></tr>
+          <tr><td>Более 50 000 визитов в сутки</td><td>лимит полосы</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="note">Не уверены? <a href="#lead">Напишите нам</a> — оценим бесплатно.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Тарифы</p>
+    <h2>Выберите тариф</h2>
+    <p class="sub">Чем длиннее период оплаты, тем ниже цена в месяц.</p>
+    <div class="seg" id="period" role="tablist">
+      <button role="tab" data-m="1" aria-selected="true">Месяц</button>
+      <button role="tab" data-m="6" aria-selected="false">Полгода −7%</button>
+      <button role="tab" data-m="12" aria-selected="false">Год −10%</button>
+    </div>
+    <div class="cards cards--3 plans" id="plans"></div>
+    <p class="note">Цена указана за один сайт. Скидка действует при оплате периода целиком.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec--tint" id="faq">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">FAQ</p>
+    <h2>Частые вопросы</h2>
+    <details open><summary>Как добавить сайт в белый список?</summary><p>Нужен «белый» IP-адрес: сайт должен работать на адресе, который операторы пропускают при ограничениях. Мы подключаем ваш домен к такой инфраструктуре, вы меняете DNS, и результат проверяется в нашем чекере. Подробности — в блоке «Как добавить сайт в белый список» выше.</p></details>
+    <details><summary>Что такое белые списки операторов?</summary><p>Это перечни ресурсов и IP-адресов, которые остаются доступными при ограничении мобильного интернета.</p></details>
+    <details><summary>Сколько занимает подключение?</summary><p>От одного дня — зависит от тарифа и количества поддоменов.</p></details>
+    <details><summary>Как проверить, есть ли сайт в списке?</summary><p>Введите домен в чекер вверху страницы — получите статус по каждому оператору.</p></details>
+    <details><summary>Есть ли гарантия?</summary><p>Условия и компенсация фиксируются в договоре. Если адрес выпал из списка, заменим его.</p></details>
+    <details><summary>Можно ли оплатить по счёту для юрлица?</summary><p>Да, работаем по договору и выставляем счёт.</p></details>
+  </div>
+</section>
+
+<!-- LEAD -->
+<section class="sec sec--dark" id="lead">
+  <div class="wrap lead2">
+    <div>
+      <h2>Оставьте заявку</h2>
+      <p>Проверим текущий статус бесплатно и рассчитаем стоимость.</p>
+      <ul class="ticks"><li>Проверка по 4 операторам</li><li>Ответ в течение часа</li><li>Работаем по договору</li></ul>
+    </div>
+    <form class="form" id="leadForm" novalidate>
+      <label>Ваш сайт<input name="domain" required placeholder="example.ru" autocomplete="off"></label>
+      <label>Имя<input name="name" required placeholder="Как к вам обращаться" autocomplete="name"></label>
+      <label>Telegram или телефон<input name="contact" required placeholder="@username или +7 900 000-00-00" autocomplete="off"></label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="plan" id="leadPlan" value="">
+      <button class="btn btn--lg" type="submit" id="leadBtn">Отправить заявку</button>
+      <p class="form__msg" id="leadMsg" role="status"></p>
+      <p class="fine">Нажимая кнопку, вы принимаете <a href="/politika-konfidencialnosti.html">политику конфиденциальности</a> и <a href="/publichnaya-oferta.html">оферту</a>.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div><a class="logo" href="/"><span class="logo__mark">✓</span>В белые списки</a><p>Проверка и подключение сайтов к белым спискам операторов.</p></div>
+    <div><b>Разделы</b><a href="#checker">Проверка</a><a href="#pricing">Тарифы</a><a href="#faq">FAQ</a></div>
+    <div><b>Документы</b><a href="/politika-konfidencialnosti.html">Политика конфиденциальности</a><a href="/publichnaya-oferta.html">Публичная оферта</a></div>
+  </div>
+  <div class="wrap foot__c">© 2026 v-belye-spiski.ru</div>
+</footer>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
