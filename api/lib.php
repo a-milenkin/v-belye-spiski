@@ -13,7 +13,8 @@ function config(): array {
     static $c = null;
     if ($c === null) {
         $f = __DIR__ . '/config.php';
-        $c = is_file($f) ? require $f : require __DIR__ . '/config.sample.php';
+        $c = require __DIR__ . '/config.sample.php';
+        if (is_file($f)) $c = array_replace($c, require $f);
     }
     return $c;
 }
