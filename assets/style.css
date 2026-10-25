@@ -218,3 +218,13 @@ body{background:var(--bg)}
 .docs i{display:block;color:var(--accent);font-style:normal;font-weight:700;font-size:14px;margin-top:10px}
 @media(max-width:860px){.docs{grid-template-columns:1fr 1fr}.guar::after{width:84px;height:84px;top:-34px;right:14px}}
 @media(max-width:560px){.docs{grid-template-columns:1fr}}
+
+/* ---- юридические страницы */
+.doc{padding:8px 0 24px}
+.doc h1{font-size:clamp(28px,4vw,40px);margin-bottom:.2em}
+.doc__date{color:var(--muted);margin:0 0 24px}
+.doc h2{font-size:21px;margin:1.8em 0 .5em}
+.doc p,.doc li{line-height:1.65}
+.doc ul{margin:.4em 0 1em;padding-left:22px}
+.doc li{margin:.25em 0}
+.doc__back{margin-top:2.4em}
