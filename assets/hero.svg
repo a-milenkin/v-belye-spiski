@@ -4,53 +4,98 @@
   .bg{fill:#eaf1ff}.wall{fill:#e5484d}.phone{fill:#0f1b33}.scr{fill:#fff}
   .bad rect{fill:#fff;stroke:#c9d3e6;stroke-width:1.5}.bad text{fill:#6b7a97;font-size:14px;font-weight:600}
   .good rect{fill:#e3f6ea;stroke:#12a150;stroke-width:1.5}.good text{fill:#0d7a3d;font-size:14px;font-weight:700}
+  .mine-off rect{fill:#fff;stroke:#e5484d;stroke-width:2}.mine-off text{fill:#c93a3f;font-size:14px;font-weight:800}
+  .mine-on rect{fill:#e3f6ea;stroke:#12a150;stroke-width:2}.mine-on text{fill:#0d7a3d;font-size:14px;font-weight:800}
   .cross{fill:#e5484d;font-size:18px;font-weight:800;opacity:0}
-  /* серые сайты едут к барьеру и гаснут: путь 80px, правый край плашки останавливается у барьера */
-  .b1{animation:blk 6s linear infinite}.b2{animation:blk 6s linear -2s infinite}.b3{animation:blk 6s linear -4s infinite}
+
+  /* конкуренты упираются в барьер */
+  .b1{animation:blk 6s linear infinite}.b2{animation:blk 6s linear -3s infinite}
   @keyframes blk{0%{transform:translateX(0);opacity:0}8%{opacity:1}52%{transform:translateX(78px);opacity:1}62%{transform:translateX(78px) scale(.92);opacity:0}100%{transform:translateX(78px);opacity:0}}
-  .x1{animation:xx 6s linear infinite}.x2{animation:xx 6s linear -2s infinite}.x3{animation:xx 6s linear -4s infinite}
+  .x1{animation:xx 6s linear infinite}.x2{animation:xx 6s linear -3s infinite}
   @keyframes xx{0%,50%{opacity:0;transform:scale(.4)}56%{opacity:1;transform:scale(1.2)}66%{opacity:1;transform:scale(1)}74%,100%{opacity:0}}
-  /* зелёные проходят сквозь барьер до телефона */
+  /* известные сервисы проходят всегда */
   .g1{animation:ok 6s linear infinite}.g2{animation:ok 6s linear -3s infinite}
   @keyframes ok{0%{transform:translateX(0);opacity:0}8%{opacity:1}80%{transform:translateX(240px);opacity:1}92%,100%{transform:translateX(240px);opacity:0}}
-  .pulse{animation:pl 1.6s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
-  @keyframes pl{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+  /* «ваш сайт»: цикл 8 с. Сначала тумблер выключен и сайт заблокирован, потом включается и сайт проходит */
+  .yoff{opacity:0;animation:yoff 8s linear infinite}
+  @keyframes yoff{0%{transform:translateX(0);opacity:0}4%{opacity:1}24%{transform:translateX(78px);opacity:1}34%{transform:translateX(78px) scale(.94);opacity:0}100%{transform:translateX(78px);opacity:0}}
+  .yx{opacity:0;animation:yx 8s linear infinite}
+  @keyframes yx{0%,24%{opacity:0;transform:scale(.4)}28%{opacity:1;transform:scale(1.25)}36%{opacity:1;transform:scale(1)}40%,100%{opacity:0}}
+  .yon{opacity:1;animation:yon 8s linear infinite}
+  @keyframes yon{0%,44%{transform:translateX(0);opacity:0}48%{transform:translateX(0);opacity:1}76%{transform:translateX(240px);opacity:1}86%,100%{transform:translateX(240px);opacity:0}}
+
+  /* тумблер */
+  .knob{transform:translateX(22px);animation:knob 8s ease-in-out infinite}
+  @keyframes knob{0%,38%{transform:translateX(0)}42%,94%{transform:translateX(22px)}98%,100%{transform:translateX(0)}}
+  .trk-on{opacity:1;animation:trk 8s linear infinite}
+  @keyframes trk{0%,38%{opacity:0}42%,94%{opacity:1}98%,100%{opacity:0}}
+  .t-off{opacity:0;animation:toff 8s linear infinite}.t-on{opacity:1;animation:ton 8s linear infinite}
+  @keyframes toff{0%,38%{opacity:1}42%,96%{opacity:0}98%,100%{opacity:1}}
+  @keyframes ton{0%,38%{opacity:0}42%,94%{opacity:1}98%,100%{opacity:0}}
+
+  /* экран телефона */
+  .s-off{opacity:0;animation:soff 8s linear infinite}.s-on{opacity:1;animation:son 8s linear infinite}
+  @keyframes soff{0%,76%{opacity:1}80%,94%{opacity:0}98%,100%{opacity:1}}
+  @keyframes son{0%,76%{opacity:0}80%,94%{opacity:1}98%,100%{opacity:0}}
   .sig path{animation:sg 1.6s ease-in-out infinite;opacity:.25}.sig path:nth-child(2){animation-delay:.2s}.sig path:nth-child(3){animation-delay:.4s}
-  @keyframes sg{0%,100%{opacity:.25}50%{opacity:1}}
+  @keyframes sg{0%,100%{opacity:.3}50%{opacity:1}}
   .wallglow{animation:wg 2.4s ease-in-out infinite}@keyframes wg{0%,100%{opacity:.35}50%{opacity:.75}}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important}.b1,.b2,.b3,.g1,.g2{opacity:1}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.b1,.b2,.g1,.g2{opacity:1}}
 </style>
 <rect class="bg" width="520" height="360" rx="20"/>
-<text x="24" y="38" font-size="17" font-weight="800" fill="#0f1b33">Ограничения мобильного интернета</text>
-<text x="24" y="60" font-size="13.5" fill="#4b5b79">Проходят только сайты из белого списка</text>
+<text x="24" y="36" font-size="17" font-weight="800" fill="#0f1b33">Ограничения мобильного интернета</text>
+<text x="24" y="57" font-size="13.5" fill="#4b5b79">Проходят только сайты из белого списка</text>
 
 <!-- барьер -->
-<rect class="wallglow" x="242" y="80" width="18" height="250" rx="9" fill="#e5484d" opacity=".4"/>
-<rect class="wall" x="248" y="84" width="6" height="242" rx="3"/>
-<text x="251" y="348" font-size="12" font-weight="700" fill="#c93a3f" text-anchor="middle">фильтр оператора</text>
+<rect class="wallglow" x="242" y="76" width="18" height="236" rx="9" fill="#e5484d" opacity=".4"/>
+<rect class="wall" x="248" y="80" width="6" height="228" rx="3"/>
+<text x="251" y="326" font-size="12" font-weight="700" fill="#c93a3f" text-anchor="middle">фильтр оператора</text>
 
-<!-- обычные сайты: блокируются -->
-<g class="bad"><g class="b1"><rect x="12" y="92" width="152" height="36" rx="11"/><text x="88" y="115" text-anchor="middle">ваш-конкурент.ру</text></g></g>
-<g class="bad"><g class="b2"><rect x="12" y="142" width="152" height="36" rx="11"/><text x="88" y="165" text-anchor="middle">интернет-магазин</text></g></g>
-<g class="bad"><g class="b3"><rect x="12" y="192" width="152" height="36" rx="11"/><text x="88" y="215" text-anchor="middle">мой-сайт.ру</text></g></g>
-<text class="cross x1" x="236" y="115" text-anchor="middle">✕</text>
-<text class="cross x2" x="236" y="165" text-anchor="middle">✕</text>
-<text class="cross x3" x="236" y="215" text-anchor="middle">✕</text>
+<!-- чужие сайты: блокируются -->
+<g class="bad"><g class="b1"><rect x="12" y="78" width="152" height="34" rx="10"/><text x="88" y="100" text-anchor="middle">ваш-конкурент.ру</text></g></g>
+<g class="bad"><g class="b2"><rect x="12" y="120" width="152" height="34" rx="10"/><text x="88" y="142" text-anchor="middle">интернет-магазин</text></g></g>
+<text class="cross x1" x="236" y="100" text-anchor="middle">✕</text>
+<text class="cross x2" x="236" y="142" text-anchor="middle">✕</text>
 
-<!-- белый список: проходят -->
-<g class="good"><g class="g1"><rect x="12" y="260" width="152" height="36" rx="11"/><text x="88" y="283" text-anchor="middle">Госуслуги</text></g></g>
-<g class="good"><g class="g2"><rect x="12" y="304" width="152" height="36" rx="11"/><text x="88" y="327" text-anchor="middle">Сбер · Яндекс</text></g></g>
+<!-- известные сервисы: проходят -->
+<g class="good"><g class="g1"><rect x="12" y="170" width="152" height="34" rx="10"/><text x="88" y="192" text-anchor="middle">Госуслуги</text></g></g>
+<g class="good"><g class="g2"><rect x="12" y="212" width="152" height="34" rx="10"/><text x="88" y="234" text-anchor="middle">Сбер · Яндекс</text></g></g>
+
+<!-- ваш сайт: сначала заблокирован, после включения тумблера проходит -->
+<g class="mine-off"><g class="yoff"><rect x="12" y="258" width="152" height="34" rx="10"/><text x="88" y="280" text-anchor="middle">ваш сайт</text></g></g>
+<text class="yx" x="236" y="280" text-anchor="middle" style="fill:#e5484d;font-size:18px;font-weight:800">✕</text>
+<g class="mine-on"><g class="yon"><rect x="12" y="258" width="152" height="34" rx="10"/><text x="88" y="280" text-anchor="middle">ваш сайт</text></g></g>
+
+<!-- тумблер «Белый список» -->
+<g transform="translate(14 306)">
+  <rect width="44" height="24" rx="12" fill="#c4cddd"/>
+  <rect class="trk-on" width="44" height="24" rx="12" fill="#12a150"/>
+  <circle class="knob" cx="12" cy="12" r="9" fill="#fff"/>
+  <text x="54" y="9" font-size="11" fill="#4b5b79">Белый список</text>
+  <text class="t-off" x="54" y="22" font-size="12" font-weight="800" fill="#c93a3f">выключен</text>
+  <text class="t-on" x="54" y="22" font-size="12" font-weight="800" fill="#0d7a3d">включён</text>
+</g>
 
 <!-- телефон -->
-<g class="pulse">
-  <rect class="phone" x="396" y="104" width="112" height="208" rx="20"/>
-  <rect class="scr" x="404" y="122" width="96" height="172" rx="10"/>
-  <rect x="438" y="110" width="28" height="4" rx="2" fill="#2b3a5c"/>
-  <g class="sig" fill="none" stroke="#12a150" stroke-width="3.2" stroke-linecap="round" transform="translate(452 168)">
+<rect class="phone" x="396" y="96" width="112" height="216" rx="20"/>
+<rect class="scr" x="404" y="114" width="96" height="182" rx="10"/>
+<rect x="438" y="102" width="28" height="4" rx="2" fill="#2b3a5c"/>
+<g class="s-off">
+  <g transform="translate(452 166)" fill="none" stroke-linecap="round">
+    <g stroke="#b9c3d6" stroke-width="3.2"><path d="M-17 -7 A24 24 0 0 1 17 -7"/><path d="M-11 0 A14 14 0 0 1 11 0"/><path d="M-5 7 A6 6 0 0 1 5 7"/></g>
+    <path d="M-18 -16 L18 18" stroke="#e5484d" stroke-width="4"/>
+  </g>
+  <text x="452" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#c93a3f">не открывается</text>
+  <rect x="418" y="238" width="68" height="26" rx="8" fill="#fdecec" stroke="#e5484d"/>
+  <text x="452" y="255.5" text-anchor="middle" font-size="11" font-weight="800" fill="#c93a3f">ваш сайт</text>
+</g>
+<g class="s-on">
+  <g class="sig" fill="none" stroke="#12a150" stroke-width="3.2" stroke-linecap="round" transform="translate(452 166)">
     <path d="M-17 -7 A24 24 0 0 1 17 -7"/><path d="M-11 0 A14 14 0 0 1 11 0"/><path d="M-5 7 A6 6 0 0 1 5 7"/>
   </g>
-  <text x="452" y="224" text-anchor="middle" font-size="11" font-weight="800" fill="#0d7a3d">открывается</text>
-  <rect x="418" y="240" width="68" height="26" rx="8" fill="#e3f6ea" stroke="#12a150"/>
-  <text x="452" y="257.5" text-anchor="middle" font-size="11" font-weight="800" fill="#0d7a3d">ваш сайт</text>
+  <text x="452" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#0d7a3d">открывается</text>
+  <rect x="418" y="238" width="68" height="26" rx="8" fill="#e3f6ea" stroke="#12a150"/>
+  <text x="452" y="255.5" text-anchor="middle" font-size="11" font-weight="800" fill="#0d7a3d">ваш сайт</text>
 </g>
 </svg>

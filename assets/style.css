@@ -228,3 +228,8 @@ body{background:var(--bg)}
 .doc ul{margin:.4em 0 1em;padding-left:22px}
 .doc li{margin:.25em 0}
 .doc__back{margin-top:2.4em}
+
+/* ---- блок «Подходит ли ваш сайт» */
+.fit-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.fit-tags span{background:#f3f7fd;border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:14px;color:var(--text)}
+.fit-tags--no span{background:#fdecec;border-color:#f5c3c3;color:#8a2a2f}
